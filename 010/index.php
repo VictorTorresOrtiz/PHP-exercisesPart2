@@ -1,12 +1,8 @@
 <?php
 session_start();
-include '../011/011login.php';
-    if(isset($_POST['login'])){
 
-        $usuario = $_POST['usuario'];
-        $password = ($_POST['password']);
-        $status = '1'; //Sesion 1 iniciada 
-    }
+$_SESSION["test"] = "Ilerna";
+$sesion = $_SESSION["test"];
 
 ?>
 
