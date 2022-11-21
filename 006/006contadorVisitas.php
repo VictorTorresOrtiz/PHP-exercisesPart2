@@ -1,14 +1,16 @@
 <?php 
-//Empieza la sesion
-session_start();
-   
-if( isset( $_SESSION['contador'] ) ) {
-    $_SESSION['contador'] += 1;
-}else {
-    $_SESSION['contador'] = 1;
+
+  
+if( isset( $_COOKIE['contador'] ) ) {
+    setcookie('contador', $_COOKIE['contador']+1 , time()+365*24*60*60); //Incrementamos contador cada visita
+
+
+}else { // si nunca a entrado
+    setcookie('contador', 1, time()+365*24*60*60); //Creacion de nueva cookie que dure 1 año
+    echo "Bienvenidos por primera vez";
 }
 
-//Borrar Cookies
+
 
 ?>
 
@@ -31,6 +33,25 @@ if( isset( $_SESSION['contador'] ) ) {
         Contador
       </button>
 
+      
+      <!--Borrar Cookies-->
+      <form method="GET" >
+        <div class="form-check" name="borrar">
+          <input class="form-check-input" type="checkbox" value="borrar" name="borrar" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">Borrar Cookies</label>
+        </div>
+      </form>
+
+      <?php
+      $borrar = $GET['borrar'];
+      if($borrar == 'on') {
+        unset($_SESSION);
+        unset($_COOKIE['contador']);
+        $_COOKIE['contador'] = 0;
+      }
+
+      ?>
+
       <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -42,23 +63,7 @@ if( isset( $_SESSION['contador'] ) ) {
 
 
             <div class="modal-body">
-                <p>Nuestras visitas <?php print $_SESSION['contador'] ?></p>
-                <div class="form-check">
-                <form method="POST">
-                    <input class="form-check-input" type="checkbox"  name="reinicio">
-                    <label class="form-check-label" for="reset">
-                        ¿Quieres borrar las Cookies?
-                    </label>
-                <input type="submit" value="enviar"/>
-                </form>
-                <?php
-
-                $reinicio=$_POST['reinicio']; //reiniciar el contador.
-                if ($reinicio=="on") {
-                   unset($_SESSION['contador']);
-                   }
-                ?>
-
+                <p>Nuestras visitas <?php print $_COOKIE['contador'] ?></p>
                 </div>
             </div>
             <div class="modal-footer">
