@@ -15,17 +15,22 @@
 <body>
 
     <form action="subida.php" method="post" enctype="multipart/form-data">
-        <b>Usuario:</b> 
-        <br>
-        <input type="text" name="username" size="20" maxlength="100">
-        <input type="hidden" name="MAX_FILE_SIZE" value="100000">
-        <br>
-        <br>
-        <b>Enviar un nuevo archivo: </b>
-        <br>
-        <input name="userfile" type="file">
-        <br>
+
+        <div class="mb-3 ">
+            <label for="anchura" class="form-label">Anchura</label>
+            <input type="text" class="form-control" name="anchura" id="anchura" placeholder="Especifica anchura">
+          </div>
+          <div class="mb-3">
+            <label for="altura" class="form-label">Altura</label>
+            <input type="text" class="form-control" name="altura" id="altura" placeholder="Especifica Altura">
+          </div>
+          <div class="mb-3">
+            <label for="fileToUpload" class="form-label">Subir Imagen</label>
+            <input class="form-control" type="file" id="fileToUpload" name="fileToUpload">
+          </div>
+
         <input type="submit" value="Enviar">
+        
     </form>
     
 </body>

@@ -1,6 +1,6 @@
 <?php
 //Comprobar si llegan los datos por post 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
   //Comprobar campos txt Apellidos y Nombre
   function validar_nombre(string $texto): bool
@@ -28,12 +28,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   
   //Variables
   $errores = [];
-  $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
-  $apellidos = isset($_POST['apellidos']) ? $_POST['apellidos'] : null;
-  $convivientes = isset($_POST['convivientes']) ? $_POST['convivientes'] : null;
-  $hobbies = isset($_POST['hobbies']) ? $_POST['hobbies'] : null;
-  $gustos = isset($_POST['gustos']) ? $_POST['gustos'] : null;
-  $email = isset($_POST['email']) ? $_POST['email'] : null;
+  $nombre = isset($_GET['nombre']) ? $_GET['nombre'] : null;
+  $apellidos = isset($_GET['apellidos']) ? $_GET['apellidos'] : null;
+  $convivientes = isset($_GET['convivientes']) ? $_GET['convivientes'] : null;
+  $hobbies = isset($_GET['hobbies']) ? $_GET['hobbies'] : null;
+  $gustos = isset($_GET['gustos']) ? $_GET['gustos'] : null;
+  $email = isset($_GET['email']) ? $_GET['email'] : null;
 
 
   //Validaciones
@@ -119,7 +119,7 @@ $gustos[] = $_POST("gustos") ? $_POST['gustos'] : null;
         <?php endif; ?>
 
 
-    <form class="col-sm-5" method="POST">
+    <form class="col-sm-5" method="GET">
         <div class="form-group row mb-2">
           <label for="nombre"  class="col-sm-2 col-form-label">Nombre</label>
           <div class="col-sm-10">

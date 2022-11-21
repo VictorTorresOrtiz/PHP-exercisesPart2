@@ -5,15 +5,13 @@ $apellidos = $_GET["apellidos"];
 $email = $_GET["email"];
 $convivientes = $_GET["convivientes"];
 
+
 if (isset($_GET["sexo"])) {
     $sexo = $_GET["sexo"];
     // comprobar si tiene el formato adecuado, su valor, etc...
 }
 
-if (isset($_GET["nombre"])) {
-    $nombre = $_GET["nombre"];
-    // comprobar si tiene el formato adecuado, su valor, etc...
-}
+
 
 if (isset($_GET["hobbies"])) {
     $hobbies = $_GET["hobbies"];
