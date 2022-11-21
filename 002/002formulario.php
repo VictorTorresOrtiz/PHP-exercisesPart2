@@ -10,6 +10,11 @@ if (isset($_GET["sexo"])) {
     // comprobar si tiene el formato adecuado, su valor, etc...
 }
 
+if (isset($_GET["nombre"])) {
+    $nombre = $_GET["nombre"];
+    // comprobar si tiene el formato adecuado, su valor, etc...
+}
+
 if (isset($_GET["hobbies"])) {
     $hobbies = $_GET["hobbies"];
     // comprobar si tiene el formato adecuado, su valor, etc...
@@ -20,10 +25,6 @@ if (isset($_GET["gustos"])) {
     $gustos = $_GET["gustos"];
     // comprobar si tiene el formato adecuado, su valor, etc...
 }
-
-
-
-
 
 
 ?>
@@ -62,11 +63,11 @@ if (isset($_GET["gustos"])) {
         <tr>
         <!--Implode convierte array en string-->
         <th scope="row">1</th>
-        <td><?php  $nombre?></td>
-        <td><?php print $apellidos?></td>
-        <td><?php  $convivientes?></td>
-        <td><?php  $email?></td>
-        <td><?php  print $sexo       ?></td>
+        <td><?php  echo $nombre?></td>
+        <td><?php  echo $apellidos?></td>
+        <td><?php  echo $convivientes?></td>
+        <td><?php  echo $email?></td>
+        <td><?php  print implode($sexo)?></td>
         <td><?php  print implode($hobbies)?></td>
         <td><?php  print implode($gustos)?></td>
         </tr>

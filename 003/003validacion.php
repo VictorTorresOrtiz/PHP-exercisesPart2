@@ -1,3 +1,96 @@
+<?php
+//Comprobar si llegan los datos por post 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+  //Comprobar campos txt Apellidos y Nombre
+  function validar_nombre(string $texto): bool
+  {
+      return !(trim($texto) == '');
+
+  }
+  function validar_apellidos(string $texto): bool
+  {
+      return !(trim($texto) == '');
+
+  }
+
+  //Validar campos numéricos  Convivientes
+  function validar_convivientes(string $numero): bool
+  {
+      return (filter_var($numero, FILTER_VALIDATE_INT) === FALSE) ? False : True;
+  }
+  //Validar EMAIL
+  function validar_email(string $texto): bool
+  {
+      return (filter_var($texto, FILTER_VALIDATE_EMAIL) === FALSE) ? False : True;
+  }
+
+  
+  //Variables
+  $errores = [];
+  $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
+  $apellidos = isset($_POST['apellidos']) ? $_POST['apellidos'] : null;
+  $convivientes = isset($_POST['convivientes']) ? $_POST['convivientes'] : null;
+  $hobbies = isset($_POST['hobbies']) ? $_POST['hobbies'] : null;
+  $gustos = isset($_POST['gustos']) ? $_POST['gustos'] : null;
+  $email = isset($_POST['email']) ? $_POST['email'] : null;
+
+
+  //Validaciones
+
+  //Nombre y Apellidos
+  if (!validar_nombre($nombre)) {
+    $errores[] = 'El campo Nombre es obligatorio.';
+  }
+
+  if (!validar_apellidos($nombre)) {
+    $errores[] = 'El campo Apellidos es obligatorio.';
+  }
+
+
+  //Email
+
+  if (!validar_email($email)) {
+    $errores[] = 'El campo de Email tiene un formato no válido.';
+  }
+
+  //convivientes
+  if (!validar_convivientes($convivientes)) {
+    $errores[] = 'Debe ser un número.';
+}
+
+/*
+$sexo[] = $_POST("sexo") ? $_POST['sexo'] : null;
+  foreach ($sexo as $sexo){
+    if (empty($sexo) ){
+        $errores[] = 'Selecciona un Campo Sexo';
+    }
+  }
+  */  
+  
+
+/*
+$hobbies[] = $_POST("hobbies") ? $_POST['hobbies'] : null;
+  foreach ($hobbies as $hobbies){
+    if (empty($hobbies)){
+        $errores[] = 'Selecciona un Campo hobbies';
+    }
+  }
+  */
+
+/*
+$gustos[] = $_POST("gustos") ? $_POST['gustos'] : null;
+  foreach ($gustos as $gustos){
+    if (empty($gustos)){
+        $errores[] = 'Selecciona tus gustos';
+    }
+}
+*/
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,31 +106,41 @@
     <title>002</title>
 </head>
 <body>
+    <!--Monstrar Errores-->
+    <?php if (isset($errores)): ?>
+        <ul class="errores">
+            <?php 
+                foreach ($errores as $error) {
+                    echo '<li>' . $error . '</li>';
+                } 
+            ?> 
+        </ul>
+        <?php endif; ?>
 
 
-    <form class="col-sm-5" method="GET" action="002formulario.php">
+    <form class="col-sm-5" method="POST">
         <div class="form-group row mb-2">
-          <label for="nombre" name="nombre" class="col-sm-2 col-form-label">Nombre</label>
+          <label for="nombre"  class="col-sm-2 col-form-label">Nombre</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+            <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
           </div>
         </div>
         <div class="form-group row mb-2">
             <label for="apellidos" name="apellidos" class="col-sm-2 col-form-label">Apellidos</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="apellidos" placeholder="Apellidos">
+              <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Apellidos">
             </div>
           </div>
           <div class="form-group row mb-2">
-            <label for="convivientes" name="Convivientes" class="col-sm-2 col-form-label">Convivientes</label>
+            <label for="convivientes" name="convivientes" class="col-sm-2 col-form-label">Convivientes</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="convivientes" placeholder="¿Cuantas personas viven en tu casa?">
+              <input type="number" class="form-control" name="convivientes" id="convivientes" placeholder="¿Cuantas personas viven en tu casa?">
             </div>
           </div>
         <div class="form-group row mb-5">
           <label for="Email" name="email" class="col-sm-2 col-form-label">Email</label>
           <div class="col-sm-10">
-            <input type="email" class="form-control" id="email" placeholder="Email">
+            <input type="email" class="form-control" name="email" id="email" placeholder="Email">
           </div>
         </div>
 
@@ -108,16 +211,12 @@
             <option value="Tu Novia">Tu novia</option>
             <option value="Yo">Yo</option>
           </select>
-
-          <input type="checkbox" name="gustos[]" value="c" /> C<br />
-
         <div class="form-group row">
           <div class="col-sm-10 mt-3">
-            <button type="submit" class="btn btn-primary">Sign in</button>
+            <button type="submit" name ="enviar" value="enviar" class="btn btn-primary">Sign in</button>
           </div>
         </div>
       </form>
-    
     
 </body>
 </html>

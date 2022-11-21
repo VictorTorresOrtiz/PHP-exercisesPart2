@@ -1,11 +1,3 @@
-<?php
-if($_SERVER['HTTP_REFERER'] == "server.php") //Enlace a server
-{
-
-}else{
-    header('Location:server.php');  
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +13,9 @@ if($_SERVER['HTTP_REFERER'] == "server.php") //Enlace a server
     <title>001 Enlace</title>
 </head>
 <body>
+    <a href="001server.php">
+        <button type="button" class="btn btn-primary">Para el server</button>
+    </a>
    
 </body>
 </html>
