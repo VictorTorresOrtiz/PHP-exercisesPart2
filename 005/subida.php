@@ -39,6 +39,11 @@ if ($_FILES["fileToUpload"]["size"] > 500000) {
 	$uploadOk = 0;
   }
 
+  // Solo se pueden subir fotos
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+        echo "El archivo solo puede ser una foto JPG, JPEG, PNG & GIF ";
+        $uploadOk = 0;
+    }
 
 // Check  $uploadOk i
 if ($uploadOk == 0) {
