@@ -1,5 +1,5 @@
 <?php
-//Comprobar si llegan los datos por post 
+//Comprobar si llegan los datos por get 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
   //Comprobar campos txt Apellidos y Nombre
