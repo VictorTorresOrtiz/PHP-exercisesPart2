@@ -106,6 +106,7 @@ $gustos[] = $_POST("gustos") ? $_POST['gustos'] : null;
     <title>002</title>
 </head>
 <body>
+  
     <!--Monstrar Errores-->
     <?php if (isset($errores)): ?>
         <ul class="errores">
@@ -162,7 +163,7 @@ $gustos[] = $_POST("gustos") ? $_POST['gustos'] : null;
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="sexo[]" id="sexoN" value="No especificado">
+                <input class="form-check-input" type="radio" name="sexo[]" id="sexoN" value="No especificado" checked>
                 <label class="form-check-label" for="sexoN">
                   No especificar
                 </label>
@@ -178,7 +179,7 @@ $gustos[] = $_POST("gustos") ? $_POST['gustos'] : null;
               <legend class="col-form-label col-sm-2 pt-0">Hobbies</legend>
               <div class="col-sm-10">
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" name="hobbies[]" id="hobbiesChill" value="De chill">
+                  <input class="form-check-input" type="checkbox" name="hobbies[]" id="hobbiesChill" value="De chill" checked>
                   <label class="form-check-label" for="hobbiesChill">
                     De chill
                   </label>
@@ -213,7 +214,7 @@ $gustos[] = $_POST("gustos") ? $_POST['gustos'] : null;
           </select>
         <div class="form-group row">
           <div class="col-sm-10 mt-3">
-            <button type="submit" name ="enviar" value="enviar" class="btn btn-primary">Sign in</button>
+            <button type="submit" name ="enviar" value="enviar" class="btn btn-primary">Check</button>
           </div>
         </div>
       </form>
