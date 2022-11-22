@@ -10,10 +10,9 @@
     </head>
     <body>
         <form method="POST" action="007fondo.php">
-            <button  class="btn btn-light" name="green" value="green">green</button>
+            <button  class="btn btn-succees" name="green" value="green">green</button>
             <button  class="btn btn-dark"  name="dark" value="dark">Dark</button>
             <button  class="btn btn-primary" name="blue" value="blue">Blue</button>
-            <input  type="submit" class="btn btn-success" name="submit"></input>
         </form>
 
 
