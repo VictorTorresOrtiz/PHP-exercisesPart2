@@ -1,9 +1,8 @@
 <?php
 
-/* POR HACER
 $anchura = $_POST["anchura"];
 $altura = $_POST["altura"];
-*/
+
 
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -13,10 +12,10 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 if(isset($_POST["submit"])) {
   $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
   if($check !== false) {
-    echo "File is an image - " . $check["mime"] . ".";
+    echo "Es una imagen - " . $check["mime"] . ".";
     $uploadOk = 1;
   } else {
-    echo "File is not an image.";
+    echo "No es una imagen.";
     $uploadOk = 0;
   }
 }
@@ -56,5 +55,20 @@ if ($uploadOk == 0) {
 	  echo "Error al descargar.";
 	}
   }
+
+  //Monstrar Imagen
+  echo "<img src='uploads/".$target_file."width= ".$anchura. "height='.$altura>"; 
   
   ?>
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>005</title>
+  </head>
+  <body>
+  </body>
+  </html>

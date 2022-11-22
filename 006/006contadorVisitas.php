@@ -21,7 +21,7 @@
       
       <!--Borrar Cookies-->
       <form method="POST" action="006contadorVisitas.php" >
-        <input type="submit" value ="Borrar Cookies "name="submit" onclick="borrar()"></input>
+          <input type="submit" value ="Borrar Cookies "name="submit" onclick="borrar()"></input>
       </form>
 
       <!-- Modal -->
@@ -61,8 +61,8 @@ if( isset( $_COOKIE['contador'] ) ) {
 }
 
 function borrar(){
-  if (isset($_POST['submit'])){
-    setcookie( 'contador', 0, time()- 0);
+  if (isset($_COOKIE['contador'])){
+    setcookie('contador', 0, time()+365*24*60*60); //Creacion de nueva cookie que dure 1 año
   }
 }
  
