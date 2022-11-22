@@ -61,8 +61,8 @@ if( isset( $_COOKIE['contador'] ) ) {
 }
 
 function borrar(){
-  if (isset($_COOKIE['contador'])){
-    setcookie('contador', 0, time()+365*24*60*60); //Creacion de nueva cookie que dure 1 año
+  if (isset($_POST['submit'])){
+    
   }
 }
  
