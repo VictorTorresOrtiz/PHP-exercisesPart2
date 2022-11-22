@@ -1,30 +1,29 @@
 <?php 
-
-    if (isset ($_POST['color'])){
-        $color = $_POST['color'];
-        setcookie("colorCookie", $color , time() + 0 * 24 * 0 * 0); //24 HORAS 
-        echo '<body style="background-color: #ffff>';
-
-    } elseif (isset ($_POST['light'])){
+    //SESIONES PARA CADA COLOR 
+if (isset ($_POST['light'])){
         $color = $_POST['light'];
-        setcookie("lightColorCookie", $light , time() + 0 * 24 * 0 * 0); //24 HORAS 
-        echo '<body style="background-color: black>';
+        session_start();
+        $sesion = $_SESSION["light"];
+        echo '<body style="background-color: #ffff></body>';
+        echo '<p>' + print_r($_SESSION);
 
-    } elseif (isset ($_POST['blue'])){
+} elseif (isset ($_POST['dark'])){
+        $color = $_POST['dark'];
+        session_start();
+        $sesion = $_SESSION["dark"];
+        echo '<body style="background-color: black></body>';
+
+} elseif (isset ($_POST['blue'])){
         $color = $_POST['blue'];
-        setcookie("lightColorCookie", $blue , time() + 0 * 24 * 0 * 0); //24 HORAS 
-        echo '<body style="background-color: blue>';
+        session_start();
+        $sesion = $_SESSION["blue"];
+        echo '<body style="background-color: blue></body>';
 
-    } else {
-        //Primera entrada por URL ¿hay cookie?
-        if (isset($_COOKIE['color'])){ //Verificar si existe la cookie color
-            $color = $_COOKIE['color'];
-        } else {
-            //SI NO HAY COOKIE PONEMOS COLOR POR DEFECTO
-            $color = 'white';
-        }
-    }
+} 
+
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +47,13 @@
         <option value="dark" name="dark" >Dark</option>
         <option value="blue" name="blue" >Blue</option>
     </select>
-    <input type="submit" value="Cambiar Color"/>
+
+    <a href="">
+        <button type="button" class="btn btn-primary mt-5">Siguiente Ejercicio</button>
+        <input type="submit" value="Cambiar Color"/>
+    </a>
+    
+
 
     </form>
 </body>
