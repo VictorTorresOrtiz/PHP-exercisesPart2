@@ -10,8 +10,12 @@ if( isset( $_COOKIE['contador'] ) ) {
     echo "Bienvenidos por primera vez";
 }
 
-
-
+function accion(){
+  if (isset($_POST['submit'])){
+    $_COOKIE['contador'] = 0;
+  }
+}
+ 
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +28,7 @@ if( isset( $_COOKIE['contador'] ) ) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
-    <title>001 server</title>
+    <title>006</title>
 </head>
 <body>
 
@@ -35,22 +39,9 @@ if( isset( $_COOKIE['contador'] ) ) {
 
       
       <!--Borrar Cookies-->
-      <form method="GET" >
-        <div class="form-check" name="borrar">
-          <input class="form-check-input" type="checkbox" value="borrar" name="borrar" id="flexCheckDefault">
-          <label class="form-check-label" for="flexCheckDefault">Borrar Cookies</label>
-        </div>
+      <form method="POST" action="006contadorVisitas.php" >
+        <input type="submit" value="submit" name="submit" onclick="borrar()">Borrar Cookies</input>
       </form>
-
-      <?php
-      $borrar = $GET['borrar'];
-      if($borrar == 'on') {
-        unset($_SESSION);
-        unset($_COOKIE['contador']);
-        $_COOKIE['contador'] = 0;
-      }
-
-      ?>
 
       <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
