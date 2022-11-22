@@ -1,9 +1,9 @@
 <?php
 
-/* POR HACER
+
 $anchura = $_POST["anchura"];
 $altura = $_POST["altura"];
-*/
+
 
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -51,5 +51,8 @@ if ($uploadOk == 0) {
 	  echo "Error al descargar.";
 	}
   }
+
+  //Monstrar Imagen
+  echo "<img src='uploads/".$target_file."width= ".$anchura. "height='.$altura>"; 
   
   ?>
