@@ -21,7 +21,17 @@
       
       <!--Borrar Cookies-->
       <form method="POST" action="006contadorVisitas.php" >
-          <input type="submit" value ="Borrar Cookies "name="submit" onclick="borrar()"></input>
+
+        <a href ="borrarCookies.php">
+          <input type="submit" value ="borrar-cookies "name="submit"></input>
+        </a>
+
+        <?php
+        if (isset($_POST['submit'])){
+          header("location:borrarCookies.php");
+        }
+        ?>
+
       </form>
 
       <!-- Modal -->
@@ -60,10 +70,4 @@ if( isset( $_COOKIE['contador'] ) ) {
     echo "Bienvenidos por primera vez";
 }
 
-function borrar(){
-  if (isset($_POST['submit'])){
-    
-  }
-}
- 
 ?>

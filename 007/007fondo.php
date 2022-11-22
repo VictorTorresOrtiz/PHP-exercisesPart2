@@ -22,17 +22,17 @@
         setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
 
         if(isset($_POST['light'])) {
-             setcookie($cookie_name, $cookie_value, time() - 60); 
+             setcookie($cookie_name, $cookie_value, time() - 1); 
              $cookie_name = "lightMode";
              $cookie_value = "lightUserMode";
 
             } elseif(isset($_POST['dark'])) {
-                setcookie($cookie_name, $cookie_value, time() - 60);
+                setcookie($cookie_name, $cookie_value, time() - 1);
                 $cookie_name = "darkMode";
                 $cookie_value = "darkUserMode";
 
             } elseif(isset($_POST['dark'])) {
-                setcookie($cookie_name, $cookie_value, time() - 60);
+                setcookie($cookie_name, $cookie_value, time() - 1);
                 $cookie_name = "blueMode";
                 $cookie_value = "blueUserMode";
 
