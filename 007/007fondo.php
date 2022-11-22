@@ -13,7 +13,7 @@
             <button type="button" class="btn btn-light" onclick="lightMode()" name="light" value="light">Light</button>
             <button type="button" class="btn btn-dark" onclick="darkMode()" name="dark" value="dark">Dark</button>
             <button type="button" class="btn btn-primary" onclick="blueMode()" name="blue" value="blue">Blue</button>
-            <input type="submit" class="btn btn-primary" name="submit"></input>
+            <input type="submit" class="btn btn-success" name="submit"></input>
         </form>
 
         <?php
