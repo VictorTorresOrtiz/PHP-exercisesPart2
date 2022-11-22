@@ -1,22 +1,3 @@
-<?php 
-
-  
-if( isset( $_COOKIE['contador'] ) ) {
-    setcookie('contador', $_COOKIE['contador']+1 , time()+365*24*60*60); //Incrementamos contador cada visita
-
-
-}else { // si nunca a entrado
-    setcookie('contador', 1, time()+365*24*60*60); //Creacion de nueva cookie que dure 1 año
-    echo "Bienvenidos por primera vez";
-}
-
-function accion(){
-  if (isset($_POST['submit'])){
-    $_COOKIE['contador'] = 0;
-  }
-}
- 
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +21,7 @@ function accion(){
       
       <!--Borrar Cookies-->
       <form method="POST" action="006contadorVisitas.php" >
-        <input type="submit" value="submit" name="submit" onclick="borrar()">Borrar Cookies</input>
+        <input type="submit" value ="Borrar Cookies "name="submit" onclick="borrar()"></input>
       </form>
 
       <!-- Modal -->
@@ -48,7 +29,7 @@ function accion(){
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Tus visitas</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -66,3 +47,23 @@ function accion(){
     </div>
 </body>
 </html>
+
+<?php 
+
+  
+if( isset( $_COOKIE['contador'] ) ) {
+    setcookie('contador', $_COOKIE['contador']+1 , time()+365*24*60*60); //Incrementamos contador cada visita
+
+
+}else { // si nunca a entrado
+    setcookie('contador', 1, time()+365*24*60*60); //Creacion de nueva cookie que dure 1 año
+    echo "Bienvenidos por primera vez";
+}
+
+function borrar(){
+  if (isset($_POST['submit'])){
+    setcookie( 'contador', 0, time()- 0);
+  }
+}
+ 
+?>

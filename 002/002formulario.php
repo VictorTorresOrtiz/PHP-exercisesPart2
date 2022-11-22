@@ -27,9 +27,6 @@ if (isset($_GET["gustos"])) {
 
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
