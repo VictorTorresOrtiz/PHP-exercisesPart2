@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   }
 
   
-  //Variables
+  //Variables falta los arrays por VALIDAR
   $errores = [];
   $nombre = isset($_GET['nombre']) ? $_GET['nombre'] : null;
   $apellidos = isset($_GET['apellidos']) ? $_GET['apellidos'] : null;
